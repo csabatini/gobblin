@@ -263,6 +263,10 @@ task wrapper(type: Wrapper) { gradleVersion = '1.12' }
 
 import javax.tools.ToolProvider
 
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
+
 task javadocTarball(type: Tar) {
   baseName = "gobblin-javadoc-all"
   destinationDir = new File(project.buildDir, baseName)
